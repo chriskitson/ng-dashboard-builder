@@ -1,0 +1,14 @@
+<div class="toolbar">
+  <button (click)="layoutService.addItem()">Add Item</button>
+  <div class="draggable" draggable="true" (dragend)="onDragEnd('example1')">Example 1</div>
+  <div class="draggable" draggable="true" (dragend)="onDragEnd('example2')">Example 2</div>
+</div>
+<gridster [options]="options">
+  <gridster-item *ngFor="let item of layout"
+    [item]="item"
+    (dragover)="setDropId(item.id)"
+  >
+    <ng-container appLayoutItem [componentRef]="getComponentRef(item.id)"></ng-container>
+    <button (click)="layoutService.deleteItem(item)">Delete Item</button>
+  </gridster-item>
+</gridster>
