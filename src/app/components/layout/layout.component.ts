@@ -28,17 +28,4 @@ export class LayoutComponent implements OnInit {
   ngOnInit() {
   }
 
-  setDropId(id: string): void {
-    this.layoutService.setDropId(id);
-  }
-
-  onDragEnd(id: string): void {
-    this.layoutService.dropItem(id);
-  }
-
-  getComponentRef(id: string): string {
-    const comp = this.components.find(c => c.id === id);
-    return comp ? comp.componentRef : null;
-  }
-
 }

@@ -51,13 +51,14 @@ export class LayoutService {
   }
 
   dropItem(dragId: string): void {
-    const comp: IComponent = this.components.find(c => c.id === this.dropId);
-    const updateIdx: number = comp ? this.components.indexOf(comp) : this.components.length;
+    const { components } = this;
+    const comp: IComponent = components.find(c => c.id === this.dropId);
+    const updateIdx: number = comp ? components.indexOf(comp) : components.length;
     const componentItem: IComponent = {
       id: this.dropId,
       componentRef: dragId
     };
-    this.components = Object.assign([], this.components, { [updateIdx]: componentItem });
+    this.components = Object.assign([], components, { [updateIdx]: componentItem });
   }
 
 }
