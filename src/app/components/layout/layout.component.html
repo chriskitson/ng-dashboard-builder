@@ -1,7 +1,7 @@
 <div class="toolbar">
   <button (click)="layoutService.addItem()">Add Item</button>
-  <div class="draggable" draggable="true" (dragend)="layoutService.onDragEnd('example1')">Example 1</div>
-  <div class="draggable" draggable="true" (dragend)="layoutService.onDragEnd('example2')">Example 2</div>
+  <div class="draggable" draggable="true" (dragend)="layoutService.dropItem('example1')">Example 1</div>
+  <div class="draggable" draggable="true" (dragend)="layoutService.dropItem('example2')">Example 2</div>
 </div>
 <gridster [options]="options">
   <gridster-item *ngFor="let item of layout"
