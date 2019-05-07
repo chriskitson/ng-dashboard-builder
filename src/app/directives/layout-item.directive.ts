@@ -29,6 +29,11 @@ export class LayoutItemDirective implements OnChanges {
    if (component) {
     const factory = this.resolver.resolveComponentFactory<any>(component);
     this.component = this.container.createComponent(factory);
+
+    // pass value to component
+    this.component.instance.aValue = 'hello';
+
+
    }
 
   }
