@@ -13,13 +13,34 @@ export interface IComponent {
 export class LayoutService {
 
   public options: GridsterConfig = {
-    draggable: {
-      enabled: true
-    },
-    pushItems: true,
+    compactType: 'compactUp&Left',
     resizable: {
-      enabled: true
+      enabled: true,
+    },
+    floating: true,
+    pushing: true,
+    swapping: true,
+    isMobile: true,
+    mobileBreakPoint: 768,
+    columns: this.getColumns(),
+    dynamicColumns: true,
+    minWidthToAddANewColumn: 255,
+    rowHeight: 400,
+    draggable: {
+      enabled: true,
     }
+  };
+
+  getColumns() {
+    const browserWidth = window.innerWidth;
+    if (browserWidth < 1300) {
+      return 3;
+    } else if (browserWidth < 1500) {
+      return 4;
+    } else if (browserWidth < 1700) {
+      return 5;
+    }
+    return 6;
   };
 
   public layout: GridsterItem[] = [];
